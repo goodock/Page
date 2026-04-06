@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sieun Kwon - Researcher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --primary-light: #2c5282;
+            --accent: #c05621;
+            --accent-light: #dd6b20;
+            --bg: #fafafa;
+            --bg-card: #ffffff;
+            --text: #1a202c;
+            --text-secondary: #4a5568;
+            --text-light: #718096;
+            --border: #e2e8f0;
+            --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: #fff;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .header-content {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.3);
+            object-fit: cover;
+            flex-shrink: 0;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 56px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .header-info h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+
+        .header-info h1 span {
+            font-weight: 400;
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-left: 12px;
+        }
+
+        .header-info .affiliation {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .header-info .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .header-info .contact-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 0.88rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+
+        .header-info .contact-links a:hover {
+            color: #fff;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        nav ul {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+            list-style: none;
+            display: flex;
+            gap: 0;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 14px 20px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--primary);
+            border-bottom-color: var(--accent);
+        }
+
+        /* Main */
+        main {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        section {
+            margin-bottom: 48px;
+        }
+
+        section h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 24px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 48px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .card .meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .card .meta .badge {
+            background: #ebf4ff;
+            color: var(--primary-light);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.78rem;
+            font-weight: 500;
+        }
+
+        .card p, .card ul {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+        }
+
+        .card ul {
+            padding-left: 20px;
+        }
+
+        .card ul li {
+            margin-bottom: 4px;
+        }
+
+        /* About */
+        .about-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Education timeline */
+        .timeline-item {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 20px;
+        }
+
+        .timeline-date {
+            min-width: 140px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 500;
+            padding-top: 2px;
+        }
+
+        .timeline-content h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .timeline-content p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+
+        /* Research interests tags */
+        .research-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .research-tag {
+            background: linear-gradient(135deg, #ebf4ff, #e2e8f0);
+            color: var(--primary);
+            padding: 8px 18px;
+            border-radius: 24px;
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+
+        /* Awards */
+        .award-item {
+            display: flex;
+            gap: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .award-item:last-child {
+            border-bottom: none;
+        }
+
+        .award-year {
+            min-width: 50px;
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .award-detail {
+            font-size: 0.9rem;
+        }
+
+        .award-detail .award-name {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .award-detail .award-desc {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .skill-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .skill-item i {
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .skill-item .skill-name {
+            font-weight: 600;
+            font-size: 0.92rem;
+            margin-bottom: 4px;
+        }
+
+        .skill-item .skill-desc {
+            font-size: 0.78rem;
+            color: var(--text-light);
+        }
+
+        /* Publication note */
+        .pub-note {
+            background: #fffbeb;
+            border: 1px solid #fbbf24;
+            border-radius: 8px;
+            padding: 16px 20px;
+            font-size: 0.88rem;
+            color: #92400e;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 32px 24px;
+            font-size: 0.82rem;
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 24px;
+                gap: 24px;
+            }
+
+            .header-info .contact-links {
+                justify-content: center;
+            }
+
+            nav ul {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            nav ul li a {
+                padding: 12px 14px;
+                font-size: 0.82rem;
+                white-space: nowrap;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .timeline-date {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="header-content">
+        <div class="profile-photo">
+            <i class="fas fa-user"></i>
+        </div>
+        <div class="header-info">
+            <h1>Sieun Kwon <span>(&#xAD8C;&#xC2DC;&#xC740;)</span></h1>
+            <div class="affiliation">
+                M.S. Student, UST (University of Science and Technology)<br>
+                Korea Institute of Machinery and Materials (KIMM) School<br>
+                Formerly at Korea University of Technology and Education (KOREATECH)
+            </div>
+            <div class="contact-links">
+                <a href="mailto:klily0914@naver.com"><i class="fas fa-envelope"></i> klily0914@naver.com</a>
+                <!-- <a href="#"><i class="fab fa-google-scholar"></i> Google Scholar</a> -->
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Navigation -->
+<nav>
+    <ul>
+        <li><a href="#about" class="active">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#awards">Awards</a></li>
+    </ul>
+</nav>
+
+<!-- Main Content -->
+<main>
+
+    <!-- About -->
+    <section id="about">
+        <h2>About</h2>
+        <p class="about-text">
+            I am a M.S. student at the <strong>University of Science and Technology (UST)</strong>,
+            affiliated with the <strong>Korea Institute of Machinery and Materials (KIMM) School</strong>,
+            where I began my graduate studies in March 2025.
+            I received my B.S. in Energy and Electrical Engineering from
+            <strong>Korea University of Technology and Education (KOREATECH)</strong>.
+            My research focuses on the optimization and development of renewable energy systems,
+            particularly photovoltaic (PV) power generation systems including system design,
+            performance monitoring, and grid integration analysis.
+        </p>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+        <h2>Education</h2>
+        <div class="card">
+            <div class="timeline-item">
+                <div class="timeline-date">Mar 2025 &ndash; Present</div>
+                <div class="timeline-content">
+                    <h3>University of Science and Technology (UST)</h3>
+                    <p>M.S. Student &mdash; KIMM (Korea Institute of Machinery and Materials) School</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Mar 2021 &ndash; Feb 2025</div>
+                <div class="timeline-content">
+                    <h3>Korea University of Technology and Education (KOREATECH)</h3>
+                    <p>B.S. in Energy and Electrical Engineering</p>
+                    <p>Advisor: Prof. Kyungsu Lee</p>
+                </div>
+            </div>
+            <div class="timeline-item" style="margin-bottom:0">
+                <div class="timeline-date">Mar 2018 &ndash; Feb 2021</div>
+                <div class="timeline-content">
+                    <h3>Bukpyeong Girls' High School</h3>
+                    <p>Donghae, Gangwon-do, Republic of Korea</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Interests -->
+    <section id="research">
+        <h2>Research Interests</h2>
+        <div class="research-tags">
+            <span class="research-tag">Renewable Energy Systems</span>
+            <span class="research-tag">Photovoltaic System Optimization</span>
+            <span class="research-tag">Solar Power Simulation</span>
+            <span class="research-tag">Bifacial PV Modules</span>
+            <span class="research-tag">Grid Stabilization</span>
+            <span class="research-tag">Energy Data Analysis</span>
+        </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+        <h2>Publications</h2>
+
+        <div class="card">
+            <h3>Domestic Journal / Conference Papers</h3>
+            <div class="meta">
+                <span class="badge">Korean</span>
+            </div>
+            <ul>
+                <li style="margin-bottom:12px">
+                    <strong>Study on the Contribution to Power Grid Stabilization Based on Output Patterns of PV Systems by Installation Type</strong><br>
+                    <span style="font-size:0.85rem;color:var(--text-light)">
+                        (&#xC124;&#xCE58;&#xC720;&#xD615;&#xBCC4; &#xD0DC;&#xC591;&#xAD11;&#xBC1C;&#xC804;&#xC2DC;&#xC2A4;&#xD15C; &#xCD9C;&#xB825; &#xD328;&#xD134;&#xC5D0; &#xB530;&#xB978; &#xC804;&#xB825;&#xACC4;&#xD1B5; &#xC548;&#xC815;&#xD654; &#xAE30;&#xC5EC;&#xB3C4; &#xC5F0;&#xAD6C;)<br>
+                        Research Participant &amp; Paper Writing, 2024
+                    </span>
+                </li>
+            </ul>
+            <p style="font-size:0.84rem; color:var(--text-light); margin-top:8px; font-style:italic;">
+                * Additional publications may be available on
+                <a href="https://scholar.google.com/" target="_blank" style="color:var(--primary-light)">Google Scholar</a>.
+            </p>
+        </div>
+    </section>
+
+    <!-- Research Experience / Projects -->
+    <section id="projects">
+        <h2>Research Experience</h2>
+
+        <div class="card">
+            <h3>Feasibility Study on Renewable Energy Trading in District Electricity Business</h3>
+            <div class="meta">
+                <span>2024</span>
+                <span class="badge">Research Participant</span>
+            </div>
+            <ul>
+                <li>Reviewed the introduction of renewable energy within district electricity businesses</li>
+                <li>Designed problem analysis surveys for district electricity business operators</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Optimization Method for PV System Installation Conditions (Capstone Design)</h3>
+            <div class="meta">
+                <span>2024</span>
+                <span class="badge">Team Member &amp; Presenter</span>
+            </div>
+            <ul>
+                <li>Developed optimal installation methods based on PV installation conditions (location, power consumption, height, etc.)</li>
+                <li>Built an interactive PV installation guide and simulation website &mdash; <strong>SPOLA</strong></li>
+                <li>Produced project introduction video and operated a booth at the Engineering Exhibition</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Rear Irradiance Estimation Model for Bifacial PV Modules by Installation Conditions</h3>
+            <div class="meta">
+                <span>2024</span>
+                <span class="badge">Research Participant</span>
+            </div>
+            <ul>
+                <li>Analyzed rear irradiance of bifacial PV modules using PVsyst</li>
+                <li>Monitored bifacial PV systems and analyzed generation &amp; meteorological data</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Grid Stabilization Contribution by Output Patterns of PV Systems by Installation Type</h3>
+            <div class="meta">
+                <span>2024</span>
+                <span class="badge">Research Participant &amp; Paper Writing</span>
+            </div>
+            <ul>
+                <li>Monitored rooftop, south-facing, and east-west oriented PV systems</li>
+                <li>Analyzed power peak reduction effects by installation configuration</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Relationship Between PV Systems and External Factors</h3>
+            <div class="meta">
+                <span>2023</span>
+                <span class="badge">Research Participant</span>
+            </div>
+            <ul>
+                <li>Analyzed I-V curve characteristics under varying temperature and irradiance conditions</li>
+            </ul>
+        </div>
+
+        <!-- Internships -->
+        <h2 style="margin-top:48px;">Internship &amp; Lab Experience</h2>
+
+        <div class="card">
+            <h3>Carbon Neutrality Innovation Center, KOREATECH</h3>
+            <div class="meta">
+                <span>Jul 2024 &ndash; Feb 2025</span>
+                <span class="badge">Undergraduate Researcher</span>
+            </div>
+            <ul>
+                <li>Reviewed introduction of renewable energy in district electricity business</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Distributed Power System EH Lab, KOREATECH</h3>
+            <div class="meta">
+                <span>Jul 2023 &ndash; Jun 2024</span>
+                <span class="badge">Undergraduate Researcher</span>
+            </div>
+            <ul>
+                <li>Monitored PV systems and performed comparative data analysis</li>
+                <li>Conducted PV generation simulations using PVsyst</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Awards -->
+    <section id="awards">
+        <h2>Awards</h2>
+        <div class="card">
+            <div class="award-item">
+                <div class="award-year">2024</div>
+                <div class="award-detail">
+                    <div class="award-name">Grand Prize &amp; ITP Alumni Association Award (Capstone Design)</div>
+                    <div class="award-desc">Optimization Method for PV System Installation Conditions</div>
+                </div>
+            </div>
+            <div class="award-item">
+                <div class="award-year">2024</div>
+                <div class="award-detail">
+                    <div class="award-name">Excellence Award (Capstone Design Planning)</div>
+                    <div class="award-desc">Optimization Method for PV System Installation Conditions</div>
+                </div>
+            </div>
+            <div class="award-item">
+                <div class="award-year">2024</div>
+                <div class="award-detail">
+                    <div class="award-name">Gold Award (CP-CoP)</div>
+                    <div class="award-desc">Optimal Power Output Calculation by Solar Cell Type and Installation Structure</div>
+                </div>
+            </div>
+            <div class="award-item">
+                <div class="award-year">2023</div>
+                <div class="award-detail">
+                    <div class="award-name">Excellence Award (6th DoEE Engineering Fair, Round 2)</div>
+                    <div class="award-desc">Rear Output Characteristics of Bifacial PV Modules</div>
+                </div>
+            </div>
+            <div class="award-item">
+                <div class="award-year">2023</div>
+                <div class="award-detail">
+                    <div class="award-name">Excellence Award (6th DoEE Engineering Fair, Round 1)</div>
+                    <div class="award-desc">Rooftop PV System O&amp;M</div>
+                </div>
+            </div>
+            <div class="award-item">
+                <div class="award-year">2023</div>
+                <div class="award-detail">
+                    <div class="award-name">Excellence Award (Book Discussion Club)</div>
+                    <div class="award-desc">6-month book discussion and presentation</div>
+                </div>
+            </div>
+            <div class="award-item">
+                <div class="award-year">2021</div>
+                <div class="award-detail">
+                    <div class="award-name">Excellence Award (Freshman)</div>
+                    <div class="award-desc">Top 2 outstanding students in the department</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <i class="fas fa-solar-panel"></i>
+                <div class="skill-name">PVsyst</div>
+                <div class="skill-desc">PV Generation Simulation</div>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-sun"></i>
+                <div class="skill-name">Solar Pro</div>
+                <div class="skill-desc">PV Generation Simulation</div>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-drafting-compass"></i>
+                <div class="skill-name">AutoCAD</div>
+                <div class="skill-desc">Design &amp; Drafting</div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Sieun Kwon. All rights reserved.</p>
+    <p style="margin-top:8px;">
+        UST &ndash; KIMM School &nbsp;|&nbsp; Daejeon, Republic of Korea
+    </p>
+</footer>
+
+<!-- Smooth scroll & active nav -->
+<script>
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            document.querySelectorAll('nav a').forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+        });
+    });
+
+    window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('section');
+        let current = '';
+        sections.forEach(section => {
+            const top = section.offsetTop - 80;
+            if (window.scrollY >= top) {
+                current = section.getAttribute('id');
+            }
+        });
+        document.querySelectorAll('nav a').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
