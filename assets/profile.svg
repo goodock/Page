@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="bodyGrad" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#f0d5b0"/>
+      <stop offset="100%" stop-color="#d4a574"/>
+    </radialGradient>
+    <radialGradient id="cheekL" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f4a0a0" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#f4a0a0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cheekR" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f4a0a0" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#f4a0a0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fef9f0"/>
+      <stop offset="100%" stop-color="#f5ead5"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="200" cy="200" r="195" fill="url(#bgGrad)"/>
+
+  <!-- Body -->
+  <ellipse cx="200" cy="310" rx="95" ry="75" fill="url(#bodyGrad)"/>
+
+  <!-- Head -->
+  <ellipse cx="200" cy="185" rx="105" ry="100" fill="url(#bodyGrad)"/>
+
+  <!-- Ears -->
+  <ellipse cx="125" cy="100" rx="22" ry="35" fill="#d4a574" transform="rotate(-15 125 100)"/>
+  <ellipse cx="125" cy="100" rx="13" ry="22" fill="#e8c49a" transform="rotate(-15 125 100)"/>
+  <ellipse cx="275" cy="100" rx="22" ry="35" fill="#d4a574" transform="rotate(15 275 100)"/>
+  <ellipse cx="275" cy="100" rx="13" ry="22" fill="#e8c49a" transform="rotate(15 275 100)"/>
+
+  <!-- Mane -->
+  <ellipse cx="200" cy="80" rx="45" ry="35" fill="#8b6914"/>
+  <ellipse cx="185" cy="75" rx="35" ry="30" fill="#a07828"/>
+  <ellipse cx="215" cy="78" rx="30" ry="28" fill="#96701e"/>
+  <ellipse cx="200" cy="90" rx="38" ry="25" fill="#8b6914"/>
+  <!-- Mane flowing left -->
+  <ellipse cx="115" cy="120" rx="25" ry="40" fill="#8b6914" transform="rotate(20 115 120)"/>
+  <ellipse cx="110" cy="155" rx="22" ry="35" fill="#a07828" transform="rotate(15 110 155)"/>
+  <ellipse cx="112" cy="185" rx="18" ry="28" fill="#96701e" transform="rotate(10 112 185)"/>
+
+  <!-- Snout / muzzle area -->
+  <ellipse cx="200" cy="220" rx="60" ry="45" fill="#e8c8a0"/>
+
+  <!-- Eyes -->
+  <ellipse cx="160" cy="175" rx="14" ry="15" fill="#2c1810"/>
+  <ellipse cx="240" cy="175" rx="14" ry="15" fill="#2c1810"/>
+  <!-- Eye highlights -->
+  <ellipse cx="155" cy="170" rx="5" ry="6" fill="white"/>
+  <ellipse cx="235" cy="170" rx="5" ry="6" fill="white"/>
+  <ellipse cx="163" cy="177" rx="2.5" ry="3" fill="white"/>
+  <ellipse cx="243" cy="177" rx="2.5" ry="3" fill="white"/>
+
+  <!-- Nostrils -->
+  <ellipse cx="185" cy="228" rx="5" ry="4" fill="#b8946c"/>
+  <ellipse cx="215" cy="228" rx="5" ry="4" fill="#b8946c"/>
+
+  <!-- Smile -->
+  <path d="M 180 240 Q 200 258 220 240" stroke="#9c7850" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- Cheeks (blush) -->
+  <circle cx="135" cy="210" r="22" fill="url(#cheekL)"/>
+  <circle cx="265" cy="210" r="22" fill="url(#cheekR)"/>
+
+  <!-- Arms/hooves -->
+  <ellipse cx="140" cy="320" rx="28" ry="22" fill="#c89b68"/>
+  <ellipse cx="260" cy="320" rx="28" ry="22" fill="#c89b68"/>
+
+  <!-- Hooves detail -->
+  <ellipse cx="140" cy="332" rx="20" ry="10" fill="#8b6914"/>
+  <ellipse cx="260" cy="332" rx="20" ry="10" fill="#8b6914"/>
+</svg>
